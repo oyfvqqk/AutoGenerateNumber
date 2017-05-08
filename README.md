@@ -1,9 +1,9 @@
 # AutoGenerateNumber（自动编号）
 根据之前某个项目中的编号模块修改而成，感觉是个常用功能，所以单独提出来方便以后使用。
 
-##使用说明
+## 使用说明
 调用Grenerate接口的getNumberByRule方法，传入编号规则即可获取编号。
-###编号规则
+### 编号规则
 例：`'sdfs-';year u;month c;day c;'(';hour;minute;seconds;')-';num{step:2,size:3,unit:'c',name:'test1'}`
 
 - 字段之间以`；`分割
@@ -25,7 +25,7 @@
 	- size: int型，序号长度，不足的部分会用0或零补全，超过的部分会被省略。
 	- unit: String型，数字中文化标识，c为不带单位，u为带单位。
 	- name: String型，唯一，用于标识该序号的别名。
-###初始化序号
+### 初始化序号
 需调用OperateNum类的initNumMap方法，将别名和序号以map的方式传入，key为别名，value为序号。
-###序号持久化
+### 序号持久化
 目前为被动等待开发人员调用OperateNum类的getNum方法通过别名获取对应的序号，预计会在下个版本优化为主动调用持久化方法。
