@@ -9,7 +9,6 @@ import java.util.concurrent.Future;
  * 
  * @author Administrator
  * @Description: 线程池辅助类
- * @date 2017年5月6日 下午3:15:36
  *
  */
 public class ThreadPool {

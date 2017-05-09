@@ -7,7 +7,6 @@ import java.util.concurrent.ConcurrentMap;
  * 
  * @author Administrator
  * @Description: 初始化和获得序号
- * @date 2017年5月7日 下午12:56:56 
  *
  */
 public class OperateNum {

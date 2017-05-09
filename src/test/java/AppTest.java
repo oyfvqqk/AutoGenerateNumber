@@ -2,6 +2,8 @@
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import com.bm.grenerate.Grenerate;
 import com.bm.grenerate.GrenerateImpl;
@@ -15,14 +17,15 @@ import junit.framework.TestCase;
  */
 public class AppTest extends TestCase {
 	public void testOne() throws InterruptedException {
-		String rule = "'sdfs-';year c;month c;day c;'-';num{step:1,size:3,name:'test1'}";
-		Integer number = 100; // 线程数
+		String rule = "'sdfs-';year u;month c;day c;'(';hour;minute;seconds;')-';num{step:2,size:3,unit:'c',name:'test1'}";
+		Integer number = 1000; // 线程数
 		CountDownLatch countDownLatch = new CountDownLatch(number);
 		ConcurrentMap<String, Integer> map = new ConcurrentHashMap<>();
 		map.put("test1", 11);
 		OperateNum.initNumMap(map);
+		ExecutorService threadPool = Executors.newCachedThreadPool();
 		for (int i = 0; i < number; i++) {
-			ThreadPool.runThread(new Runnable() {
+			threadPool.execute(new Runnable() {
 				String rule;
 				CountDownLatch countDownLatch;
 

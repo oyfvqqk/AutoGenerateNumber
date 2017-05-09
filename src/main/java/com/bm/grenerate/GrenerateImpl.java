@@ -10,7 +10,6 @@ import com.bm.util.StringUtils;
  * 
  * @author Administrator
  * @Description: 编号生成接口实现类
- * @date 2017年5月6日 下午3:15:23
  *
  */
 public class GrenerateImpl implements Grenerate {
@@ -29,8 +28,9 @@ public class GrenerateImpl implements Grenerate {
 							rules[i] += rule;
 						}
 						ThreadPool.runThread(new rulesAnalysisThread(rules[i], i, map));
-						// new rulesAnalysisThread(rules[i], i, map).run();
+//						new rulesAnalysisThread(rules[i], i, map).run(); //高并发时不使用多线程以提高效率
 					}
+					// 等待所有子线程运行完毕
 					while (map.size() != rules.length) {
 						Thread.sleep(1);
 					}

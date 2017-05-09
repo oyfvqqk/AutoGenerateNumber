@@ -4,7 +4,6 @@ package com.bm.util;
  * 
  * @author Administrator
  * @Description: 字符串处理类
- * @date 2017年5月6日 下午3:15:53
  *
  */
 public class StringUtils {
@@ -47,6 +46,11 @@ public class StringUtils {
 		return chineseNum(String.valueOf(num));
 	}
 
+	/**
+	 * @Description: 带单位的数字中文化
+	 * @param num
+	 * @return
+	 */
 	public static String unitNum(String num) throws Exception {
 		try {
 			return unitIntegerNum(Integer.valueOf(num));
@@ -56,7 +60,7 @@ public class StringUtils {
 	}
 	
 	/**
-	 * @Description: 带进制的数字中文化
+	 * @Description: 带单位的数字中文化
 	 * @param num
 	 * @return
 	 */

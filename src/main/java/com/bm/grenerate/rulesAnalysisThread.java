@@ -12,7 +12,6 @@ import net.sf.json.JSONObject;
  * 
  * @author Administrator
  * @Description: 规则解析类
- * @date 2017年5月6日 下午3:16:19
  *
  */
 class rulesAnalysisThread implements Runnable {
@@ -64,14 +63,14 @@ class rulesAnalysisThread implements Runnable {
 	 */
 	private String num(String rule) {
 		Integer num, step, size = null;
-		String returnString, name, chinese = null, addStr = null,
+		String returnString, name, unit = null, addStr = null,
 				jsonStr = rule.substring(rule.indexOf("{"), rule.indexOf("}") + 1);
 		StringBuilder add = new StringBuilder();
 		Map<String, Integer> numMap = OperateNum.getNumMap();
 		// 解析序号的json字符串
 		JSONObject jsonObject = JSONObject.fromObject(jsonStr);
-		if (jsonObject.containsKey("chinese")) {
-			chinese = jsonObject.getString("chinese");
+		if (jsonObject.containsKey("unit")) {
+			unit = jsonObject.getString("unit");
 		}
 		if (jsonObject.containsKey("name")) {
 			name = jsonObject.getString("name");
@@ -97,9 +96,9 @@ class rulesAnalysisThread implements Runnable {
 			numMap.put(name, num);
 		}
 		// 中文化
-		if ("U".equalsIgnoreCase(chinese)) {
+		if ("U".equalsIgnoreCase(unit)) {
 			returnString = StringUtils.unitIntegerNum(num);
-		} else if ("C".equalsIgnoreCase(chinese)) {
+		} else if ("C".equalsIgnoreCase(unit)) {
 			returnString = StringUtils.chineseNum(num);
 			addStr = "零";
 		} else {

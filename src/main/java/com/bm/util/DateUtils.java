@@ -7,7 +7,6 @@ import java.util.Date;
  * 
  * @author Administrator
  * @Description: 日期辅助类
- * @date 2017年5月6日 下午3:50:12 
  *
  */
 public class DateUtils {
