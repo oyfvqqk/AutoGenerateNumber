@@ -1,11 +1,12 @@
 # AutoGenerateNumber（自动编号）
-根据之前某个项目中的编号模块修改而成，感觉是个常用功能，所以单独提出来方便以后使用。
+根据之前某个项目中编号模块的思路重新造的轮子，方便以后开发中直接使用。
 
 ## 使用说明
 调用Grenerate接口的getNumberByRule方法，传入编号规则即可获取编号。
 ### 编号规则
-例：`'sdfs-';year u;month c;day c;'(';hour;minute;seconds;')-';num{step:2,size:3,unit:'c',name:'test1'}`
+传入：`'sdfs-';year u;month c;day c;'(';hour;minute;seconds;')-';num{step:2,size:3,unit:'c',name:'test1'}` 
 
+返回：`sdfs-二千零一十七零五零九(103611)-零零一`
 - 字段之间以`；`分割
 - 固定字符串用单引号`''`包裹
 - 日期和时间（大小写皆可）：
